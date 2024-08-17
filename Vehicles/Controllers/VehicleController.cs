@@ -4,11 +4,10 @@ using Vehicles.Data.Repository;
 
 namespace Vehicles.Controller
 {
-    [Route("api/[controller]")]
+    [Route("api/vehicles")]
     [ApiController]
     public class VehicleController : ControllerBase
     {
-        // updated one's 
         private readonly IVehicleRepository _vehicleRepository;
 
         public VehicleController(IVehicleRepository vehicleRepository)
@@ -21,8 +20,7 @@ namespace Vehicles.Controller
         {
             try
             {
-                //var vehicles = VehicleRepository.Vehicles.Where(v => v.CustomerId == customerId).ToList();
-                var vehicles = _vehicleRepository.GetVehiclesByCustomerId(customerId); // updated
+                var vehicles = _vehicleRepository.GetVehiclesByCustomerId(customerId);
                 if (!vehicles.Any())
                 {
                     return NotFound($"No vehicles found for customer with ID {customerId}.");

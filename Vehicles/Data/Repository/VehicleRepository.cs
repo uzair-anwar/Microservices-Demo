@@ -2,14 +2,12 @@
 
 namespace Vehicles.Data.Repository
 {
-    // updated///
     public interface IVehicleRepository
     {
         IEnumerable<Vehicle> GetVehiclesByCustomerId(int customerId);
     }
     public class VehicleRepository : IVehicleRepository
     {
-        //updated//
         public IEnumerable<Vehicle> GetVehiclesByCustomerId(int customerId)
         {
             return Vehicles.Where(v => v.CustomerId == customerId).ToList();

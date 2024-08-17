@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Customer.Controller
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/customer")]
     public class CustomerController : ControllerBase
     { 
 
@@ -17,7 +17,7 @@ namespace Customer.Controller
         {
             _vehicleService = vehicleService;
         }
-        [HttpGet]
+        [HttpGet("all")]
         public ActionResult<IEnumerable<CustomerModel>> GetCustomers()
         {
             return Ok(CustomerRepository.Customers);
@@ -51,8 +51,8 @@ namespace Customer.Controller
             }
         }
 
-        [HttpPut("{id}")]
-        public IActionResult PutCustomer(int id, CustomerModel customer)
+        [HttpPut]
+        public IActionResult PutCustomer([FromQuery] int id, [FromBody] CustomerModel customer)
         {
             try
             {
@@ -78,8 +78,8 @@ namespace Customer.Controller
             }
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<CustomerVehiclesDTO>> GetCustomer(int id)
+        [HttpGet("byId")]
+        public async Task<ActionResult<CustomerVehiclesDTO>> GetCustomer([FromQuery] int id)
         {
             try
             {
