@@ -89,7 +89,7 @@ namespace Customer.Controller
                     return NotFound($"Customer with ID {id} not found.");
                 }
 
-                var vehicles = await _vehicleService.GetVehiclesByCustomerIdAsync(id);
+                var vehicles = await _vehicleService.GetVehiclesByCustomerId(id);
 
                 var customerWithVehicles = new CustomerVehiclesDTO
                 {

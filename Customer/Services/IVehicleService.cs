@@ -4,6 +4,6 @@ namespace Customer.Services
 {
     public interface IVehicleService
     {
-        Task<IEnumerable<VehicleModel>> GetVehiclesByCustomerIdAsync(int customerId);
+        Task<List<VehicleModel>> GetVehiclesByCustomerId(int customerId);
     }
 }
